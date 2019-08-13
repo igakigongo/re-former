@@ -1,12 +1,14 @@
 <h1>New User Form</h1>
-<form method="post" action="/users">
-  <input name="utf8" type="hidden" value="&#x2713;" />
-  <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
-  <label for="user_username">Username </label>
-  <input id="user_username" name="user[username]" type="text" />
-  <label for="user_email">Email </label>
-  <input id="user_email" name="user[email]" type="email" />
-  <label for="user_password">Password </label>
-  <input id="user_password" name="user[password]" type="password" />
-  <input name="commit" type="submit" value="Create User" />
-</form>
+
+<%= form_tag("/users") do %>
+  <%= label_tag(:username) %>
+  <%= text_field(:user, :username) %>
+
+  <%= label_tag(:email) %>
+  <%= email_field(:user, :email) %>
+
+  <%= label_tag(:password) %>
+  <%= password_field(:user, :password) %>
+
+  <%= submit_tag("Create user") %>
+<% end %>
