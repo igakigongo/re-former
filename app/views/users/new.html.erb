@@ -1,14 +1,11 @@
 <h1>New User Form</h1>
 
-<%= form_tag("/users") do %>
-  <%= label_tag(:username) %>
-  <%= text_field(:user, :username) %>
-
-  <%= label_tag(:email) %>
-  <%= email_field(:user, :email) %>
-
-  <%= label_tag(:password) %>
-  <%= password_field(:user, :password) %>
-
-  <%= submit_tag("Create user") %>
+<%= form_for @user, url: {action: "create"} do |f| %>
+  <%= f.label :username, "Enter Username" %>
+  <%= f.text_field :username, placeholder: "username here" %>
+  <%= f.label :email, "Enter email" %>
+  <%= f.email_field :email, placeholder: "email here" %>
+  <%= f.label :password, "Secret" %>
+  <%= f.password_field :password, placeholder: "password here"  %>
+  <%= f.submit "Create User" %>
 <% end %>

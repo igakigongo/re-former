@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   end
 
   def new
+    @user = User.new(username: "big good name")
   end
 
   private
