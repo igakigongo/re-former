@@ -3,10 +3,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
 
     if @user.save
-      puts "user saved"
+      flash[:success] =  "New User was successfully created"
       redirect_to new_user_path
     else
-      puts "didn't work"
       render :new
     end
   end
@@ -23,10 +22,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
 
     if @user.update_attributes(user_params)
-      puts "user updated"
+      flash[:success] =  "User details were successfully updated"
       redirect_to edit_user_path
     else
-      puts "didn't work"
       render :edit
     end
   end

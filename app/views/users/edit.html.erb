@@ -8,6 +8,10 @@
   </ul>
 <% end %>
 
+<% flash.each do |message_type, message| %>
+  <div><%= message %></div>
+<% end %>
+
 <%= form_for @user, url: {action: "update"} do |f| %>
   <%= f.label :username, "Enter Username" %>
   <%= f.text_field :username, placeholder: "username here" %>
