@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
     if @user.update_attributes(user_params)
       puts "user updated"
-      redirect_to new_user_path
+      redirect_to edit_user_path
     else
       puts "didn't work"
       render :edit
