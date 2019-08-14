@@ -1,16 +1,6 @@
 <h1>Edit User Form</h1>
 
-<% if @user.errors.any? %>
-  <ul>
-  <% @user.errors.full_messages.each do |message| %>
-    <li><%= message %></li>
-  <% end %>
-  </ul>
-<% end %>
-
-<% flash.each do |message_type, message| %>
-  <div><%= message %></div>
-<% end %>
+<%= render 'layouts/feedback' %>
 
 <%= form_for @user, url: {action: "update"} do |f| %>
   <%= f.label :username, "Enter Username" %>
@@ -19,5 +9,5 @@
   <%= f.email_field :email, placeholder: "email here" %>
   <%= f.label :password, "Secret" %>
   <%= f.password_field :password, placeholder: "password here"  %>
-  <%= f.submit "Create User" %>
+  <%= f.submit "Update User" %>
 <% end %>
